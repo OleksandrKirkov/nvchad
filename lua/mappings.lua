@@ -25,6 +25,7 @@ map("n", "|", "<cmd>split<CR>", { desc = "Horizontal Split" })
 
 map("n", "]t", "<cmd>tabnext<CR>", { desc = "Next Tab" })
 map("n", "[t", "<cmd>tabprevious<CR>", { desc = "Previous Tab" })
+
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jj", "<ESC>", { desc = "Esc insert" })
 map("t", "nn", "<C-\\><C-n>", { noremap = true, silent = true })
@@ -49,7 +50,7 @@ map("n", "<leader>bC", function()
   require("nvchad.tabufline").closeAllBufs()
 end, { desc = "Close all buffers" })
 
--- map("n", "<leader>e", "<cmd>Neotree toggle filesystem<CR>", { desc = "Toggle NeoTree" })
+map("n", "<leader>e", "<cmd>Neotree toggle filesystem<CR>", { desc = "Toggle NeoTree" })
 map("n", "<leader>o", "<cmd>Neotree focus filesystem<CR>", { desc = "Focus NeoTree" })
 
 map("n", "<leader>H", "<cmd>Alpha<CR>", { desc = "Dashboard/Home" })
