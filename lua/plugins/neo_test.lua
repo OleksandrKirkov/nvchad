@@ -13,7 +13,7 @@ return {
           end,
         },
       },
-    },
+    }
   end,
   dependencies = {
     "nvim-lua/plenary.nvim",

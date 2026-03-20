@@ -18,7 +18,7 @@ return {
         },
       },
     }
-    telescope.load_extendsion "file_browser"
+    telescope.load_extension "file_browser"
 
     vim.keymap.set('n', "<leader>fb", ":Telescope file_browser<CR>", { desc = "Open File Browser" })
   end,

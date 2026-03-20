@@ -1,28 +1,38 @@
 return {
-  {
-    "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
-    opts = require "configs.conform",
-  },
-
-  -- These are some examples, uncomment them if you want to see them work!
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require "configs.lspconfig"
-    end,
-  },
-
-  -- test new blink
-  -- { import = "nvchad.blink.lazyspec" },
-
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+  require "plugins.alpha",
+  require "plugins.auto_session",
+  require "plugins.bqf",
+  require "plugins.cmp",
+  require "plugins.conform",
+  require "plugins.dab",
+  require "plugins.dadbod",
+  require "plugins.dap_pg",
+  require "plugins.diffview_pg",
+  require "plugins.disable",
+  require "plugins.dressing",
+  require "plugins.everforest",
+  require "plugins.flog",
+  require "plugins.fugitutive",
+  require "plugins.gopher",
+  require "plugins.hop",
+  require "plugins.ibl",
+  require "plugins.inlayhints",
+  require "plugins.lazydocker",
+  require "plugins.lazygit",
+  require "plugins.lint",
+  require "plugins.lspconfig",
+  require "plugins.mason",
+  require "plugins.neo_test",
+  require "plugins.neo_tree",
+  require "plugins.nio",
+  require "plugins.notify",
+  require "plugins.nvterm",
+  require "plugins.osc52",
+  require "plugins.telescope",
+  require "plugins.tmux",
+  require "plugins.todo",
+  require "plugins.treesitter",
+  require "plugins.trouble",
+  require "plugins.ts_autotag",
+  require "plugins.vim_be_good"
 }
