@@ -2,6 +2,6 @@ return {
   "stevearc/conform.nvim",
   event = "BufWritePre",
   config = function()
-    require "config.conform_cfg"
+    require "configs.conform_cfg"
   end,
 }
