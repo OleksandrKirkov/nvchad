@@ -1,24 +1,40 @@
--- This file needs to have same structure as nvconfig.lua 
--- https://github.com/NvChad/ui/blob/v3.0/lua/nvconfig.lua
--- Please read that file to know all available options :( 
-
 ---@type ChadrcConfig
+
 local M = {}
 
 M.base46 = {
-	theme = "onedark",
+	theme = "everforest",
+  transparency = true,
 
-	-- hl_override = {
-	-- 	Comment = { italic = true },
-	-- 	["@comment"] = { italic = true },
-	-- },
+  statusline = {
+    theme = "vscode_colored",
+  },
+
+  hl_override = {
+    Comment = { fg = "#5f875f", italic = true },
+    ["@comment"] = { fg = "#5f875f", italic = true },
+    DiffChange = {
+      bg = "#3e4d3e",
+      fg = "none",
+    },
+    DiffAdd = {
+      bg = "#284828",
+      fg = "none",
+    },
+    DiffRemoved = {
+      bg = "#4c2c2c",
+      fg = "none",
+    },
+  },
 }
 
--- M.nvdash = { load_on_startup = true }
--- M.ui = {
---       tabufline = {
---          lazyload = false
---      }
--- }
+M.disabled = {
+  n = {
+    ["<A-i>"] = "",
+  },
+  t = {
+    ["<A-i>"] = "",
+  }
+}
 
 return M
