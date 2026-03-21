@@ -5,13 +5,19 @@ return {
       "lua-language-server",
       "stylua",
 
-      "html-lsp",
-      "css-lsp",
+      "html",
+      "cssls",
       "prettier",
-      "eslint-lsp",
+      "eslint",
+      "json-lsp",
+      "yamlls",
+      "dockerls",
+      "tailwindcss",
+      "taplo",
+      "marksman",
+      "vtsls",
 
       "typescript-language-server",
-      "js-debug-adapter",
 
       "gopls",
 
@@ -24,7 +30,7 @@ return {
 
       "rust-analyzer",
       "rustfmt",
-      "clippy"
-    }
-  }
+      "clippy",
+    },
+  },
 }
