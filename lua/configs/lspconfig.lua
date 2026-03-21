@@ -137,6 +137,7 @@ lsp.config("cssls", {
   on_init = on_init,
   on_attach = on_attach_extended,
   capabilities = cmp_capabilities,
+  filetypes = { "css", "scss", "less" },
 })
 
 lsp.config("clangd", {
@@ -177,7 +178,7 @@ lsp.config("lua_ls", {
         checkThirdParty = false,
       },
       telemetry = {
-        enable = false
+        enable = false,
       },
     },
   },
@@ -218,7 +219,65 @@ lsp.config("html", {
   on_init = on_init,
   on_attach = on_attach_extended,
   capabilities = cmp_capabilities,
-  filetypes = { "html", "css", "javascript" },
+  filetypes = { "html", "templ" },
+  init_options = {
+    configurationSection = { "html", "css", "javascript" },
+  },
+  single_file_support = true,
+})
+
+lsp.config("jsonls", {
+  on_init = on_init,
+  on_attach = on_attach_extended,
+  capabilities = cmp_capabilities,
+  filetypes = { "json", "jsonc" },
+  init_options = {
+    provideFormatter = true,
+  },
+  single_file_support = true,
+})
+
+lsp.config("dockerls", {
+  on_init = on_init,
+  on_attach = on_attach_extended,
+  capabilities = cmp_capabilities,
+  filetypes = { "dockerfile" },
+  single_file_support = true,
+})
+
+lsp.config("marksman", {
+  on_init = on_init,
+  on_attach = on_attach_extended,
+  capabilities = cmp_capabilities,
+  filetypes = { "markdown", "markdown.mdx" },
+  single_file_support = true,
+})
+
+lsp.config("taplo", {
+  on_init = on_init,
+  on_attach = on_attach_extended,
+  capabilities = cmp_capabilities,
+  filetypes = { "taplo", "lsp", "stdio" },
+  single_file_support = true,
+})
+
+lsp.config("vtsls", {
+  on_init = on_init,
+  on_attach = on_attach_extended,
+  capabilities = cmp_capabilities,
+  cmd = { "typescript-language-server", "-stdio" },
+  single_file_support = true,
+})
+
+lsp.config("yamlls", {
+  on_init = on_init,
+  on_attach = on_attach_extended,
+  capabilities = cmp_capabilities,
+  filetypes = { "yaml", "yaml.docker-compose", "yaml.gitlab" },
+  single_file_support = true,
+  settings = {
+    redhat = { telemetry = { enabled = false } },
+  },
 })
 
 lsp.config("typos_lsp", {
@@ -254,6 +313,109 @@ lsp.config("typos_lsp", {
   capabilities = cmp_capabilities,
 })
 
+lsp.config("tailwindcss", {
+  on_init = on_init,
+  on_attach = on_attach_extended,
+  capabilities = cmp_capabilities,
+  cmd = { "tailwindcss-language-server", "--stdio" },
+  root_markers = {
+    "tailwind.config.js",
+    "tailwind.config.cjs",
+    "tailwind.config.mjs",
+    "tailwind.config.ts",
+    "postcss.config.js",
+    "postcss.config.cjs",
+    "postcss.config.mjs",
+    "postcss.config.ts",
+  },
+  filetypes = {
+    "aspnetcorerazor",
+    "astro",
+    "astro-markdown",
+    "blade",
+    "clojure",
+    "django-html",
+    "htmldjango",
+    "edge",
+    "eelixir",
+    "elixir",
+    "ejs",
+    "erb",
+    "eruby",
+    "gohtml",
+    "gohtmltmpl",
+    "haml",
+    "handlebars",
+    "hbs",
+    "html",
+    "htmlangular",
+    "html-eex",
+    "heex",
+    "jade",
+    "leaf",
+    "liquid",
+    "markdown",
+    "mdx",
+    "mustache",
+    "njk",
+    "nunjucks",
+    "razor",
+    "slim",
+    "twig",
+    "css",
+    "less",
+    "postcss",
+    "sass",
+    "scss",
+    "stylus",
+    "sugarss",
+    "javascript",
+    "javascriptreact",
+    "reason",
+    "rescript",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "svelte",
+    "templ",
+  },
+  settings = {
+    tailwindCSS = {
+      classAttributes = {
+        "class",
+        "className",
+        "class:list",
+        "classList",
+        "ngClass",
+      },
+      includeLanguages = {
+        scss = "css",
+        eelixir = "html-eex",
+        eruby = "erb",
+        htmlangular = "html",
+        templ = "html",
+      },
+      experimental = {
+        classRegex = {
+          { "@apply ([^;]*)", "([^\\s]*)" },
+          { "apply%(([^)]*)%)", "([^%s%']+)" },
+        },
+      },
+      lint = {
+        cssConflict = "warning",
+        invalidApply = "error",
+        invalidConfigPath = "error",
+        invalidScreen = "error",
+        invalidTailwindDirective = "error",
+        invalidVariant = "error",
+        recommendedVariantOrder = "warning",
+      },
+      validate = true,
+    },
+  },
+  workspace_required = true,
+})
+
 vim.lsp.enable "gopls"
 vim.lsp.enable "dotnet"
 vim.lsp.enable "protols"
@@ -267,4 +429,10 @@ vim.lsp.enable "prismals"
 vim.lsp.enable "vue_ls"
 vim.lsp.enable "sql-language-server"
 vim.lsp.enable "html"
+vim.lsp.enable "jsonls"
+vim.lsp.enable "dockerls"
+vim.lsp.enable "tailwindcss"
+vim.lsp.enable "taplo"
+vim.lsp.enable "yamlls"
+vim.lsp.enable "vtsls"
 vim.lsp.enable "typos_lsp"
