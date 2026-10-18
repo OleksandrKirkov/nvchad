@@ -28,11 +28,12 @@ return {
   require "plugins.notify",
   require "plugins.nvterm",
   require "plugins.osc52",
+  require "plugins.rose-pine",
   require "plugins.telescope",
   require "plugins.tmux",
   require "plugins.todo",
   require "plugins.treesitter",
   require "plugins.trouble",
   require "plugins.ts_autotag",
-  require "plugins.vim_be_good"
+  require "plugins.vim_be_good",
 }
