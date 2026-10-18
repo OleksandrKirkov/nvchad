@@ -15,6 +15,36 @@ map("n", "<leader>cb", function()
   print("cd .." .. vim.fn.getcwd())
 end, { desc = "Change cwd to previous dir" })
 
+_G.show_diagnostic_float = function()
+  vim.diagnostic.open_float(nil, {
+    focusable = false,
+    scope = "cursor",
+    border = "rounded",
+  })
+end
+
+_G.focus_diagnostic_float = function()
+  vim.diagnostic.open_float(nil, {
+    focusable = true,
+    scope = "cursor",
+    border = "rounded",
+    close_events = {},
+  })
+
+  vim.defer_fn(function()
+    for _, win in ipairs(vim.api.nvim_list_wins()) do
+      local config = vim.api.nvim_win_get_config(win)
+      if config.relative ~= "" then
+        vim.api.nvim_set_current_win(win)
+        break
+      end
+    end
+  end, 30)
+end
+
+map("n", "<leader>dk", "<cmd>lua show_diagnostic_float()<CR>", { desc = "Show Diagnostic Popup (no focus)" })
+map("n", "<leader>dK", "<cmd>lua focus_diagnostic_float()<CR>", { desc = "Focus Diagnostic Popup" })
+
 map("n", "<C-Up>", "<cmd>resize +2<CR>", { desc = "Resize Up" })
 map("n", "<C-Down>", "<cmd>resize -2<CR>", { desc = "Resize Down" })
 map("n", "<C-Left>", "<cmd>vertical resize -2<CR>", { desc = "Resize Left" })
@@ -30,7 +60,7 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jj", "<ESC>", { desc = "Esc insert" })
 map("t", "nn", "<C-\\><C-n>", { noremap = true, silent = true })
 
-map("n", "<leader>w", "<cmd>w<CR>", { desc = "Save" })
+map("n", "<leader>w", "<cmd>silent w<CR>", { desc = "Save" })
 
 map("n", "<leader>cx", function()
   require("nvchad.tabufline").closeAllBufs()
@@ -64,7 +94,7 @@ map("n", "<leader>S.", "<cmd>SessionRestore<CR>", { desc = "Load CWD Session" })
 map("n", "<leader>pa", "<cmd>Lazy update<CR>", { desc = "Lazy Update Packages" })
 map("n", "<leader>pA", "<cmd>NvChadUpdate<CR>", { desc = "Update NVChad" })
 map(
-  "n", 
+  "n",
   "<leader>pl",
   "<cmd>!git -C ~/.local/share/nvchad/ log --pretty=oneline -10<CR>",
   { desc = "NVChad Changelog" }
@@ -79,7 +109,7 @@ map("n", "<leader>pU", "<cmd>Lazy update<CR>", { desc = "Lazy plugin update" })
 map("n", "<leader>li", "<cmd>LspInfo<CR>", { desc = "LSP Info" })
 map("n", "<leader>lI", "<cmd>NullLsInfo<CR>", { desc = "Null-ls Info" })
 map("n", "K", vim.lsp.buf.hover, { desc = "Hover Document" })
-map("n", "<leader>lf", function ()
+map("n", "<leader>lf", function()
   vim.lsp.buf.format { async = true }
 end, { desc = "Format Document" })
 map("n", "<leader>lS", "<cmd>SymbolsOutline<CR>", { desc = "Symbols Outline" })
@@ -170,7 +200,7 @@ map("n", "<leader>qq", "<cmd>TroubleToggle quickfix<CR>", { desc = "Open Quickfi
 map("n", "<leader>ql", "<cmd>TroubleToggle loclist<CR>", { desc = "Open Location List" })
 map("n", "<leader>qt", "<cmd>TodoTrouble<CR>", { desc = "Open Todo Trouble" })
 
-map("n", "<leader>tt", function ()
+map("n", "<leader>tt", function()
   require("neotest").run.run()
 end, { desc = "Run nearest test" })
 map("n", "<leader>tf", function()
