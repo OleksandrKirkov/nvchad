@@ -36,3 +36,6 @@ require "/configs/lspconfig"
 vim.schedule(function()
   require "mappings"
 end)
+
+-- Keep NvChad's theme in sync with the system theme (theme-switch)
+require "theme_sync"

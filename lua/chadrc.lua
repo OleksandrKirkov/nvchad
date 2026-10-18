@@ -2,9 +2,23 @@
 
 local M = {}
 
+-- Theme follows the system theme (~/.local/state/theme/current/nvim, set by theme-switch).
+-- Picking a theme in NvChad's picker switches the system theme too (see lua/theme_sync.lua).
+local function system_theme()
+  local f = io.open(vim.fn.expand "~/.local/state/theme/current/nvim", "r")
+  if f then
+    local name = f:read "*l"
+    f:close()
+    if name and name ~= "" then
+      return name
+    end
+  end
+  return "onedark"
+end
+
 M.base46 = {
-	theme = "everforest",
-  transparency = true,
+  theme = system_theme(),
+  -- transparency = true,
 
   statusline = {
     theme = "vscode_colored",
@@ -34,7 +48,7 @@ M.disabled = {
   },
   t = {
     ["<A-i>"] = "",
-  }
+  },
 }
 
 return M
