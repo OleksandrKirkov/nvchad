@@ -5,19 +5,17 @@ return {
       "lua-language-server",
       "stylua",
 
-      "html",
-      "cssls",
-      "prettier",
-      "eslint",
+      "vtsls",
+      "eslint-lsp",
+      "tailwindcss-language-server",
+      "html-lsp",
+      "css-lsp",
       "json-lsp",
-      "yamlls",
+      "yaml-language-server",
+
       "dockerls",
-      "tailwindcss",
       "taplo",
       "marksman",
-      "vtsls",
-
-      "typescript-language-server",
 
       "gopls",
 
