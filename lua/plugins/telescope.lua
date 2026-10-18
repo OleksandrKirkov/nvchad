@@ -17,9 +17,14 @@ return {
           },
         },
       },
+      defaults = {
+        file_ignore_patterns = {
+          "node_modules/",
+        },
+      },
     }
     telescope.load_extension "file_browser"
 
-    vim.keymap.set('n', "<leader>fb", ":Telescope file_browser<CR>", { desc = "Open File Browser" })
+    vim.keymap.set("n", "<leader>fb", ":Telescope file_browser<CR>", { desc = "Open File Browser" })
   end,
 }

@@ -23,7 +23,7 @@ return {
 
       local dap = require "dap"
       local dapui = require "dapui"
-      
+
       dap.adapters.codelldb = {
         type = "server",
         port = "${port}",
@@ -53,7 +53,7 @@ return {
       dapui.setup()
       require("dap-go").setup()
       require("nvim-dap-virtual-text").setup {}
-      
+
       dap.listeners.before.attach.dapui_config = function()
         dapui.open()
       end
@@ -89,6 +89,6 @@ return {
         },
       }
     end,
-    ft = { "sql" }
-  }
+    ft = { "sql" },
+  },
 }

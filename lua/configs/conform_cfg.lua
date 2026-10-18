@@ -3,13 +3,14 @@ local options = {
     lua = { "stylua" },
     css = { "prettier" },
     html = { "prettier" },
+    json = { "prettier" },
     javascript = { "prettier" },
     javascriptreact = { "prettier" },
     typescript = { "prettier" },
     typescriptreact = { "prettier" },
     go = { "goimports" },
     rust = { "rustfmt" },
-    python = { "black" }
+    python = { "black" },
   },
 
   format_on_save = {
